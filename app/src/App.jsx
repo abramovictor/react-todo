@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import { render } from 'react-dom';
 
 function App() {
     return (
@@ -7,4 +7,4 @@ function App() {
     );
 }
 
-ReactDOM.render(document.querySelector('#root'), <App />);
+render(<App />, document.querySelector('#root'));
