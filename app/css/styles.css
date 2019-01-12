@@ -1,0 +1,48 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.todo-text {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.todo.completed .todo-text {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.todo.completed .fa-check-square {
+    opacity: 0.5;
+}
+
+.todo .btn {
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 1.2em;
+}
+
+.todo:hover .btn {
+    opacity: 1;
+}
+
+.todo-edit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1010;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-buttons {
+    flex-grow: 1;
+    text-align: right;
+}
