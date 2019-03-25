@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Todo from './components/Todo';
 
 export default class App extends Component {
-
     constructor(props) {
         super(props);
 
@@ -13,8 +12,21 @@ export default class App extends Component {
         };
     }
 
-    handleStatusChange = () => {
+    handleStatusChange = (id) => {
+        let todos = this.state.todos.map((todo, index) => {
+            if (index === id) {
+                todo.completed = !todo.completed;
+            }
 
+            return todo;
+        });
+
+        this.setState({ todos });
+    };
+
+    handleDelete = (id) => {
+        let todos = this.state.todos.filter((todo, index) => index !== id);
+        this.setState({ todos });
     };
 
     render() {
@@ -25,7 +37,14 @@ export default class App extends Component {
 
                 <section className="card-body">
                     {this.state.todos.map(({ title, completed }, index) =>
-                        <Todo onStatusChange={this.handleStatusChange} title={title} completed={completed} key={index} />
+                        <Todo
+                            onStatusChange={this.handleStatusChange}
+                            title={title}
+                            completed={completed}
+                            key={index}
+                            id={index}
+                            onDelete={this.handleDelete}
+                        />
                     )}
                 </section>
 
