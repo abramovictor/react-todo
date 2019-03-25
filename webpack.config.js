@@ -1,32 +1,122 @@
-module.exports = {
-    entry: __dirname + '/app/src/App.jsx',
-    mode: 'production',
+module.exports = (env, { mode }) => {
+    const path = require('path');
+    const ExtractTextPlugin = require('extract-text-webpack-plugin');
+    const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-    output: {
-        filename: 'bundle.js',
-        path: __dirname + '/app/build/'
-    },
+    const production = (mode === 'production') ? true : false;
+    const development = !production;
 
-    devServer: {
-        inline: true,
-        contentBase: './app/build',
-        port: 9000
-    },
+    return {
+        devtool: development && 'source-map',
+        watch: development,
 
-    module: {
-        rules: [{
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-        }, {
-            test: /\.css?$/,
-            loader: ['style', 'css']
-        }]
-    },
+        entry: {
+            main: './src/index.js'
+        },
 
-    devtool: 'eval-source-map',
+        output: {
+            filename: '[name].[chunkhash].js',
+            path: path.resolve(__dirname, 'public'),
+        },
 
-    resolve: {
-        extensions: ['.js', '.jsx', '.css']
-    }
-}
+        devServer: {
+            port: 8080,
+            overlay: true,
+            contentBase: path.resolve(__dirname, 'public'),
+        },
+
+        module: {
+            rules: [
+                {
+                    test: /\.jsx?$/i,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/env', '@babel/preset-react'],
+                            plugins: [
+                                '@babel/plugin-proposal-class-properties',
+                                '@babel/plugin-transform-react-jsx-self',
+                                '@babel/plugin-transform-react-jsx-source'
+                            ]
+                        }
+                    }
+                },
+                {
+                    test: /\.css$/i,
+                    use: ExtractTextPlugin.extract({
+                        use: [
+                            {
+                                loader: 'css-loader'
+                            }
+                        ]
+                    })
+                },
+                {
+                    test: /\.less$/i,
+                    use: ExtractTextPlugin.extract({
+                        use: [
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    sourceMap: true
+                                }
+                            },
+                            {
+                                loader: 'less-loader',
+                                options: {
+                                    sourceMap: true
+                                }
+                            }
+                        ]
+                    })
+                },
+                {
+                    test: /\.(jpe?g|png|gif|svg)$/i,
+                    use: {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 1,
+                            name: '[name].[ext]',
+                            outputPath: 'img/'
+                        }
+                    }
+                },
+                {
+                    test: /\.(eot|svg|ttf|woff|woff2|)$/i,
+                    use: {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 1,
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
+                        }
+                    }
+                },
+            ]
+        },
+
+        optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    vendor: {
+                        test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+                        name: 'vendor',
+                        chunks: 'all',
+                    }
+                }
+            }
+        },
+
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: './public/index.html'
+            }),
+            new ExtractTextPlugin('[name].[chunkhash].css'),
+        ],
+
+        resolve: {
+            extensions: ['.js', '.json', '.jsx', '*']
+        }
+    };
+};

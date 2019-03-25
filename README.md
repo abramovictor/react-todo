@@ -1,2 +1,1 @@
-# react-todo
-to-do list
+# react-todos
