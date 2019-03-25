@@ -26,11 +26,6 @@ body {
     line-height: 1;
 }
 
-.todo .btn .fa {
-    display: block;
-    line-height: 1;
-}
-
 .todo .btn.show,
 .todo .btn:focus:not(:disabled) {
     opacity: 1;
@@ -42,10 +37,10 @@ body {
 
 .todo-edit {
     position: absolute;
-    top: 15%;
-    left: 3.1%;
-    right: 12%;
-    bottom: 15%;
+    top: 5px;
+    left: 22px;
+    right: 80px;
+    bottom: 5px;
     z-index: 1010;
 
     display: flex;

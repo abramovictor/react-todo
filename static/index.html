@@ -8,8 +8,7 @@
     <title>React Todo</title>
     <link rel="stylesheet" href="./libs/fontawesome/css/all.css">
     <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
@@ -20,87 +19,96 @@
                 <div class="card shadow">
                     <header class="card-header bg-dark text-white">
                         <div class="row justify-content-center align-items-center">
-                            <ul type="none" class="col-auto mb-0">
+                            <ul class="col-auto mb-0 text-right" type="none">
                                 <li>
-                                    <strong>
-                                        Всего задач:
-                                    </strong>
-                                    <span class="text-light">3</span>
+                                    <strong class="mr-2">Всего задач:</strong>
+                                    <span class="text-light">4</span>
                                 </li>
                                 <li>
-                                    <strong>
-                                        Выполненных задач:
-                                    </strong>
+                                    <strong class="mr-2">Выполненных задач:</strong>
                                     <span class="text-light">1</span>
                                 </li>
                                 <li>
-                                    <strong>
-                                        Невыполненных задач:
-                                    </strong>
-                                    <span class="text-light">2</span>
+                                    <strong class="mr-2">Невыполненных задач:</strong>
+                                    <span class="text-light">3</span>
                                 </li>
                             </ul>
-                            <h1 class="col mb-0 text-center">
-                                Todo
-                            </h1>
+                            <h1 class="col mb-0 text-center">Todo</h1>
                         </div>
                     </header>
-
                     <section class="card-body">
                         <div class="todo completed card p-2 shadow-sm">
                             <div class="d-flex align-items-center">
-                                <button class="btn p-0 m-1 bg-transparent">
+
+                                <button class="btn p-0 m-1 bg-transparent" type="button">
                                     <span class="far fa-check-square"></span>
                                 </button>
 
-                                <div class="todo-text">
-                                    Изучить JavaScript
-
-                                    <div class="todo-edit d-none">
-                                        <input type="text" class="form-control h-100" placeholder="Edit">
-                                    </div>
-                                </div>
+                                <div class="todo-text">Изучить JavaScript</div>
 
                                 <div class="todo-buttons">
-                                    <button class="btn p-0 m-1 bg-transparent">
-                                        <span class="fas fa-edit"></span>
-                                    </button>
-
-                                    <button class="btn p-0 m-1 bg-transparent">
+                                    <button class="btn p-0 m-1 bg-transparent" type="button" title="Удалить">
                                         <span class="fas fa-trash-alt"></span>
+                                    </button>
+                                    <button class="btn p-0 m-1 bg-transparent" type="button" disabled="" title="Редактировать">
+                                        <span class="fas fa-edit"></span>
                                     </button>
                                 </div>
                             </div>
-
                         </div>
+
                         <div class="todo card p-2 shadow-sm">
                             <div class="d-flex align-items-center">
-                                <button class="btn p-0 m-1 bg-transparent">
-                                    <span class="far fa-square"></span>
+
+                                <button class="btn p-0 m-1 bg-transparent" type="button">
+                                    <span class="far fa-check-square"></span>
                                 </button>
 
-                                <div class="todo-text">
-                                    Изучить React
-
-                                    <div class="todo-edit d-none">
-                                        <input type="text" class="form-control h-100" placeholder="Edit">
-                                    </div>
-                                </div>
+                                <div class="todo-text">Изучить React</div>
 
                                 <div class="todo-buttons">
-                                    <button class="btn p-0 m-1 bg-transparent">
-                                        <span class="fas fa-edit"></span>
-                                    </button>
-
-                                    <button class="btn p-0 m-1 bg-transparent">
+                                    <button class="btn p-0 m-1 bg-transparent" type="button" title="Удалить">
                                         <span class="fas fa-trash-alt"></span>
+                                    </button>
+                                    <button class="btn p-0 m-1 bg-transparent" type="button" disabled="" title="Редактировать">
+                                        <span class="fas fa-edit"></span>
                                     </button>
                                 </div>
                             </div>
-
                         </div>
 
+                        <div class="todo card p-2 shadow-sm">
+                            <div class="d-flex align-items-center">
+
+                                <button class="btn p-0 m-1 bg-transparent" type="button">
+                                    <span class="far fa-check-square"></span>
+                                </button>
+
+                                <div class="todo-edit">
+                                    <input type="text" class="form-control h-100" placeholder="Изучить Node.js">
+                                </div>
+
+                                <div class="todo-buttons">
+                                    <button class="btn p-0 m-1 bg-transparent" type="button" title="Удалить">
+                                        <span class="fas fa-trash-alt"></span>
+                                    </button>
+                                    <button class="btn p-0 m-1 bg-transparent" type="button" disabled="" title="Редактировать">
+                                        <span class="fas fa-edit"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </section>
+                    <footer class="card-body bg-dark">
+                        <form class="row">
+                            <div class="col">
+                                <input class="form-control h-100" type="text" placeholder="Заголовок задачи" data-field="title">
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-light" type="submit">Добавить</button>
+                            </div>
+                        </form>
+                    </footer>
                 </div>
             </div>
         </div>

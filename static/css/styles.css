@@ -21,8 +21,19 @@ body {
 
 .todo .btn {
     opacity: 0;
-    transition: opacity 0.3s;
     font-size: 1.2em;
+    padding: 0;
+    line-height: 1;
+}
+
+.todo .btn .fa {
+    display: block;
+    line-height: 1;
+}
+
+.todo .btn.show,
+.todo .btn:focus:not(:disabled) {
+    opacity: 1;
 }
 
 .todo:hover .btn {
@@ -31,10 +42,10 @@ body {
 
 .todo-edit {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 2px;
+    left: 22px;
+    right: 80px;
+    bottom: 2px;
     z-index: 1010;
 
     display: flex;
