@@ -16,7 +16,7 @@ module.exports = (env, { mode }) => {
 
         output: {
             filename: '[name].[chunkhash].js',
-            path: path.resolve(__dirname, 'public'),
+            path: path.resolve(__dirname, 'build'),
         },
 
         devServer: {
