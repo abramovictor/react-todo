@@ -4,14 +4,14 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "webpack",
-        "start": "webpack-dev-server"
+        "dev": "webpack --mode=development",
+        "build": "npm run clean && webpack --mode=production",
+        "server": "webpack-dev-server --mode=development --open",
+        "clean": "rimraf public"
     },
-    "babel": {
-        "presets": [
-            "es2015",
-            "react"
-        ]
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/adaltezze/react-todo.git"
     },
     "author": "Victor A.",
     "license": "ISC",
