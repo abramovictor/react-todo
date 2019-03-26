@@ -7,11 +7,7 @@ body {
 }
 
 .todo-text {
-    width: 75%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
+    flex-grow: 1;
 }
 
 .todo.completed .todo-text {
@@ -23,22 +19,6 @@ body {
     opacity: 0.5;
 }
 
-.todo .btn {
-    opacity: 0;
-    font-size: 1.2em;
-    padding: 0;
-    line-height: 1;
-}
-
-.todo .btn.show,
-.todo .btn:focus:not(:disabled) {
-    opacity: 1;
-}
-
-.todo:hover .btn {
-    opacity: 1;
-}
-
 .todo-edit {
     position: absolute;
     top: 5px;
@@ -46,19 +26,7 @@ body {
     right: 5px;
     bottom: 5px;
     z-index: 1010;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.todo-edit .form-control {
-    width: 90%;
-}
-
-.todo-buttons {
-    flex-grow: 1;
-    text-align: right;
+    width: auto;
 }
 
 .todo-app .table {
@@ -71,4 +39,10 @@ body {
 .todo-app .table td {
     padding-top: 0;
     padding-bottom: 0;
+}
+
+.todo-app .stopwatch-time {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }

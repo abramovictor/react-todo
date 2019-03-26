@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Button(props) {
     return (
-        <button onClick={props.onClick} className={props.className} type={props.type || 'button'}>
+        <button onClick={props.onClick} className={props.className} type={props.type || 'button'} disabled={props.disabled || false}>
             {props.icon ? <span className={props.icon}></span> : props.children}
         </button>
     );
@@ -13,5 +13,6 @@ Button.propTypes = {
     icon: React.PropTypes.string,
     onClick: React.PropTypes.func,
     children: React.PropTypes.node,
-    type: React.PropTypes.string
+    type: React.PropTypes.string,
+    disabled: React.PropTypes.bool
 };

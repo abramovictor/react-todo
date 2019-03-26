@@ -36,15 +36,16 @@ export default class Todo extends Component {
 
                 <div className="todo-text">{this.props.title}</div>
 
-                <div className="todo-buttons">
+                <div className="btn-group">
                     <Button
-                        className="btn p-0 m-1 bg-transparent"
+                        className="btn btn-outline-dark btn-sm"
                         icon="fas fa-edit"
                         title="Редактировать"
                         onClick={this.handleButtonEditClick}
+                        disabled={this.props.completed}
                     />
                     <Button
-                        className="btn p-0 m-1 bg-transparent"
+                        className="btn btn-outline-dark btn-sm"
                         icon="fas fa-trash-alt"
                         title="Удалить"
                         onClick={() => this.props.onDelete(this.props.id)}
@@ -57,7 +58,7 @@ export default class Todo extends Component {
     get renderForm() {
         return (
             <div className='card p-2 shadow-sm flex-row align-items-center todo'>
-                <form className="todo-edit" onSubmit={this.handleSubmit}>
+                <form className="todo-edit input-group btn-group" onSubmit={this.handleSubmit}>
                     <input
                         ref="title"
                         defaultValue={this.props.title}
@@ -67,7 +68,7 @@ export default class Todo extends Component {
                     />
                     <Button
                         type="submit"
-                        className="btn p-0 m-1 bg-transparent show"
+                        className="btn btn-outline-dark"
                         icon="fas fa-save"
                         title="Сохранить"
                     />

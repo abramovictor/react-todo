@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Checkbox(props) {
     return (
-        <button onClick={props.onChange} className="btn p-0 m-1 bg-transparent show" type="button">
+        <button onClick={props.onChange} className="btn btn-link text-dark btn-lg" type="button">
             <i className={`far ${props.checked ? 'fa-check-square' : 'fa-square'}`}></i>
         </button>
     );
