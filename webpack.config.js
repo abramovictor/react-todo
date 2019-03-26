@@ -7,7 +7,9 @@ module.exports = (env, { mode }) => {
     const development = !production;
 
     return {
-        devtool: development && 'source-map',
+        devtool: development ? 'eval-sourcemap' :
+            production ? 'sourcemap' : null,
+
         watch: development,
 
         entry: {
