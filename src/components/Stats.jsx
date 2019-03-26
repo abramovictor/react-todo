@@ -1,22 +1,30 @@
 import React from 'react';
 
 export default function Stats(props) {
+    let total = props.todos.length;
+    let completed = props.todos.filter(todo => todo.completed).length;
+    let notCompleted = total - completed;
+
     return (
         <table className="table table-borderless col-auto">
             <tbody>
                 <tr>
                     <th>Всего задач:</th>
-                    <td>3</td>
+                    <td>{total}</td>
                 </tr>
                 <tr>
                     <th>Выполнено задач:</th>
-                    <td>1</td>
+                    <td>{completed}</td>
                 </tr>
                 <tr>
                     <th>Осталось задач:</th>
-                    <td>2</td>
+                    <td>{notCompleted}</td>
                 </tr>
             </tbody>
         </table>
     );
 }
+
+Stats.propTypes = {
+    todos: React.PropTypes.array.isRequired,
+};

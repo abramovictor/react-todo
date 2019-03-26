@@ -20,8 +20,9 @@ export default class Todo extends Component {
                 <div className="todo-text">{this.props.title}</div>
 
                 <div className="todo-buttons">
-                    <Button icon="fas fa-edit" title="Редактировать" />
+                    <Button className="btn p-0 m-1 bg-transparent" icon="fas fa-edit" title="Редактировать" />
                     <Button
+                        className="btn p-0 m-1 bg-transparent"
                         icon="fas fa-trash-alt"
                         title="Удалить"
                         onClick={() => this.props.onDelete(this.props.id)}

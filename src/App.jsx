@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Header from './components/Header';
 import Todo from './components/Todo';
+import Form from './components/Form';
 
 export default class App extends Component {
     constructor(props) {
@@ -33,7 +34,7 @@ export default class App extends Component {
         return (
             <div className="todo-app card shadow">
 
-                <Header title={this.props.title} />
+                <Header title={this.props.title} todos={this.state.todos} />
 
                 <section className="card-body">
                     {this.state.todos.map(({ title, completed }, index) =>
@@ -49,18 +50,7 @@ export default class App extends Component {
                 </section>
 
                 <footer className="card-body bg-dark">
-
-                    <form className="row">
-                        <div className="col">
-                            <input className="form-control h-100" type="text" placeholder="Заголовок задачи" />
-                        </div>
-                        <div className="col-auto">
-                            <button className="btn btn-light" type="submit">
-                                Добавить
-                            </button>
-                        </div>
-                    </form>
-
+                    <Form />
                 </footer>
             </div>
         );

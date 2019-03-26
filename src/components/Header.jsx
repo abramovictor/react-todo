@@ -5,7 +5,7 @@ export default function Header(props) {
     return (
         <header className="card-header bg-dark text-white">
             <div className="row align-items-center">
-                <Stats />
+                <Stats todos={props.todos} />
                 <h1 className="col mb-0 text-right">{props.title}</h1>
             </div>
         </header>
@@ -13,5 +13,6 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
-    title: React.PropTypes.string.isRequired
+    title: React.PropTypes.string.isRequired,
+    todos: React.PropTypes.array.isRequired
 };

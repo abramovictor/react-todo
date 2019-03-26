@@ -2,14 +2,16 @@ import React from 'react';
 
 export default function Button(props) {
     return (
-        <button onClick={props.onClick} className="btn p-0 m-1 bg-transparent" type="button" title={props.title}>
-            <span className={props.icon}></span>
+        <button onClick={props.onClick} className={props.className} type={props.type || 'button'}>
+            {props.icon ? <span className={props.icon}></span> : props.children}
         </button>
     );
 }
 
 Button.propTypes = {
-    title: React.PropTypes.string,
+    className: React.PropTypes.string,
     icon: React.PropTypes.string,
     onClick: React.PropTypes.func,
+    children: React.PropTypes.node,
+    type: React.PropTypes.string
 };
