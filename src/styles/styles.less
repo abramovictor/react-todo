@@ -1,0 +1,45 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.todo {
+    height: 70px;
+
+    &-text {
+        flex-grow: 1;
+    }
+
+    &-edit {
+        flex-grow: 1;
+    }
+
+    &.completed {
+        .todo-text {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .fa-check-square {
+            opacity: 0.5;
+        }
+    }
+
+    .todo-app .table {
+        text-align: right;
+        margin-bottom: 0;
+        width: auto;
+    }
+
+    &-app {
+        .table th,
+        .table td {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .stopwatch-time {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+    }
+}

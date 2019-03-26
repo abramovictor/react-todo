@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Todo from './components/Todo';
 import Form from './components/Form';
 
+import CSSTransitionGroup from 'react-addons-css-transition-group';
+
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -58,7 +60,13 @@ export default class App extends Component {
 
                 <Header title={this.props.title} todos={this.state.todos} />
 
-                <section className="card-body">
+                <CSSTransitionGroup
+                    component="section"
+                    className="card-body"
+                    transitionName="slide"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={500}
+                >
                     {this.state.todos.map(({ title, completed }, index) =>
                         <Todo
                             onStatusChange={this.handleStatusChange}
@@ -70,7 +78,7 @@ export default class App extends Component {
                             onEdit={this.handleEdit}
                         />
                     )}
-                </section>
+                </CSSTransitionGroup>
 
                 <footer className="card-body bg-dark">
                     <Form onAdd={this.handleAdd} />

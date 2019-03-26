@@ -1,6 +1,6 @@
 import './libs/fontawesome/css/all.css';
 import './libs/bootstrap/css/bootstrap.css';
-import './styles/styles.css';
+import './styles/styles.less';
 
 import React from 'react'
 import ReactDOM from 'react-dom';
