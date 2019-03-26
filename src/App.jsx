@@ -31,7 +31,7 @@ export default class App extends Component {
 
     render() {
         return (
-            <div className="card shadow">
+            <div className="todo-app card shadow">
 
                 <Header title={this.props.title} />
 

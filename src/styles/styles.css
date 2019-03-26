@@ -52,3 +52,15 @@ body {
     flex-grow: 1;
     text-align: right;
 }
+
+.todo-app .table {
+    text-align: right;
+    margin-bottom: 0;
+    width: auto;
+}
+
+.todo-app .table th,
+.todo-app .table td {
+    padding-top: 0;
+    padding-bottom: 0;
+}
