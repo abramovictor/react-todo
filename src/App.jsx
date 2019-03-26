@@ -25,8 +25,30 @@ export default class App extends Component {
         this.setState({ todos });
     };
 
-    handleDelete = (id) => {
+    handleDelete = id => {
         let todos = this.state.todos.filter((todo, index) => index !== id);
+        this.setState({ todos });
+    };
+
+    handleAdd = title => {
+        let todo = {
+            title,
+            completed: false
+        };
+
+        let todos = [...this.state.todos, todo];
+        this.setState({ todos });
+    };
+
+    handleEdit = (id, title) => {
+        let todos = this.state.todos.map((todo, index) => {
+            if (index === id) {
+                todo.title = title;
+            }
+
+            return todo;
+        });
+
         this.setState({ todos });
     };
 
@@ -45,12 +67,13 @@ export default class App extends Component {
                             key={index}
                             id={index}
                             onDelete={this.handleDelete}
+                            onEdit={this.handleEdit}
                         />
                     )}
                 </section>
 
                 <footer className="card-body bg-dark">
-                    <Form />
+                    <Form onAdd={this.handleAdd} />
                 </footer>
             </div>
         );

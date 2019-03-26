@@ -2,6 +2,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.todo {
+    height: 70px;
+}
+
 .todo-text {
     width: 75%;
     height: 100%;
@@ -38,14 +42,18 @@ body {
 .todo-edit {
     position: absolute;
     top: 5px;
-    left: 22px;
-    right: 80px;
+    left: 5px;
+    right: 5px;
     bottom: 5px;
     z-index: 1010;
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.todo-edit .form-control {
+    width: 90%;
 }
 
 .todo-buttons {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Checkbox from './Checkbox';
 import Button from './Button';
 
@@ -7,9 +6,27 @@ export default class Todo extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            editing: false
+        };
     }
 
-    render() {
+    handleButtonEditClick = () => {
+        let editing = !this.state.editing;
+        this.setState({ editing });
+    };
+
+    handleSubmit = event => {
+        event.preventDefault();
+        let title = this.refs.title.value;
+
+        this.props.onEdit(this.props.id, title);
+
+        this.setState({ editing: false });
+    };
+
+    get renderDisplay() {
         return (
             <div className={`card p-2 shadow-sm flex-row align-items-center todo${this.props.completed ? ' completed' : ''}`}>
                 <Checkbox
@@ -20,7 +37,12 @@ export default class Todo extends Component {
                 <div className="todo-text">{this.props.title}</div>
 
                 <div className="todo-buttons">
-                    <Button className="btn p-0 m-1 bg-transparent" icon="fas fa-edit" title="Редактировать" />
+                    <Button
+                        className="btn p-0 m-1 bg-transparent"
+                        icon="fas fa-edit"
+                        title="Редактировать"
+                        onClick={this.handleButtonEditClick}
+                    />
                     <Button
                         className="btn p-0 m-1 bg-transparent"
                         icon="fas fa-trash-alt"
@@ -28,8 +50,34 @@ export default class Todo extends Component {
                         onClick={() => this.props.onDelete(this.props.id)}
                     />
                 </div>
-            </div >
+            </div>
         );
+    }
+
+    get renderForm() {
+        return (
+            <div className='card p-2 shadow-sm flex-row align-items-center todo'>
+                <form className="todo-edit" onSubmit={this.handleSubmit}>
+                    <input
+                        ref="title"
+                        defaultValue={this.props.title}
+                        className="form-control h-100"
+                        type="text"
+                        placeholder="Заголовок задачи"
+                    />
+                    <Button
+                        type="submit"
+                        className="btn p-0 m-1 bg-transparent show"
+                        icon="fas fa-save"
+                        title="Сохранить"
+                    />
+                </form>
+            </div>
+        );
+    }
+
+    render() {
+        return this.state.editing ? this.renderForm : this.renderDisplay;
     }
 }
 
@@ -39,4 +87,5 @@ Todo.propTypes = {
     completed: React.PropTypes.bool.isRequired,
     onStatusChange: React.PropTypes.func.isRequired,
     onDelete: React.PropTypes.func.isRequired,
+    onEdit: React.PropTypes.func.isRequired
 };
