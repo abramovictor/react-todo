@@ -21,12 +21,13 @@ body {
 
 .todo-edit {
     position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
+    top: 0;
+    left: 46.5px;
+    right: 8px;
+    bottom: 0;
     z-index: 1010;
     width: auto;
+    align-items: center;
 }
 
 .todo-app .table {

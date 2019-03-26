@@ -62,7 +62,7 @@ export default class Todo extends Component {
                     <input
                         ref="title"
                         defaultValue={this.props.title}
-                        className="form-control h-100"
+                        className="form-control"
                         type="text"
                         placeholder="Заголовок задачи"
                     />
