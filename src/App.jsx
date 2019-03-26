@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Todo from './components/Todo';
 import Form from './components/Form';
 
-import CSSTransitionGroup from 'react-addons-css-transition-group';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 export default class App extends Component {
     constructor(props) {
@@ -64,8 +64,10 @@ export default class App extends Component {
                     component="section"
                     className="card-body"
                     transitionName="slide"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}
+                    transitionEnterTimeout={300}
+                    transitionLeaveTimeout={300}
+                    transitionAppear={true}
+                    transitionAppearTimeout={700}
                 >
                     {this.state.todos.map(({ title, completed }, index) =>
                         <Todo
