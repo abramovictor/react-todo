@@ -6,7 +6,7 @@ export default function Stats(props) {
     let notCompleted = total - completed;
 
     return (
-        <table className="table table-borderless col-auto w-auto">
+        <table className="table table-borderless col-auto w-auto mb-0">
             <tbody>
                 <tr>
                     <th>Всего задач:</th>

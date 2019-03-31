@@ -73,10 +73,10 @@ export default class Stopwatch extends Component {
 
                 <div className="btn-group">
                     {this.state.running ?
-                        <Button className="btn btn-dark btn-sm" icon="fas fa-pause" onClick={this.handlePause} /> :
-                        <Button className="btn btn-dark btn-sm" icon="fas fa-play" onClick={this.handleStart} />
+                        <Button title="Пауза" className="btn btn-dark btn-sm" icon="fas fa-pause" onClick={this.handlePause} /> :
+                        <Button title="Старт" className="btn btn-dark btn-sm" icon="fas fa-play" onClick={this.handleStart} />
                     }
-                    <Button className="btn btn-dark btn-sm" icon="fas fa-stop" onClick={this.handleStop} />
+                    <Button title="Стоп" className="btn btn-dark btn-sm" icon="fas fa-stop" onClick={this.handleStop} />
                 </div>
             </div>
         );

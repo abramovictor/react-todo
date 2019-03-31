@@ -38,14 +38,14 @@ export default class Todo extends Component {
 
                 <div className="btn-group">
                     <Button
-                        className="btn btn-outline-dark btn-sm"
+                        className="btn btn-link text-dark"
                         icon="fas fa-edit"
                         title="Редактировать"
                         onClick={this.handleButtonEditClick}
                         disabled={this.props.completed}
                     />
                     <Button
-                        className="btn btn-outline-dark btn-sm"
+                        className="btn btn-link text-dark"
                         icon="fas fa-trash-alt"
                         title="Удалить"
                         onClick={() => this.props.onDelete(this.props.id)}
@@ -68,7 +68,7 @@ export default class Todo extends Component {
                     />
                     <Button
                         type="submit"
-                        className="btn btn-outline-dark"
+                        className="btn btn-dark"
                         icon="fas fa-save"
                         title="Сохранить"
                     />

@@ -65,7 +65,7 @@ export default class App extends Component {
                     className="card-body"
                     transitionName="slide"
                     transitionEnterTimeout={300}
-                    transitionLeaveTimeout={300}
+                    transitionLeave={false}
                     transitionAppear={true}
                     transitionAppearTimeout={700}
                 >
